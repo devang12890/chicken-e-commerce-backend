@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHICKEN | Urban Streetwear</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="light-mode">
+<!-- Theme Toggle -->
+<div class="theme-toggle">
+    <button id="themeBtn"><i class="fas fa-moon"></i></button>
+</div>
+<!-- Navbar -->
+<header class="navbar">
+    <div class="nav-logo">CHICKEN</div>
+    <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="/cart">Cart <span class="cart-count">0</span></a>
+    </nav>
+    <div class="nav-icons">
+        <!-- <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+        </div> -->
+        <div class="theme-toggle">
+            <i id="theme-icon" class="fas fa-moon"></i>
+        </div>
+    </div>
+    </div>
+</header>
+
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>CHICKEN</h1>
+        <h2>STREETWEAR WITH ATTITUDE</h2>
+        <a href="#shop" class="btn">SHOP NOW</a>
+    </div>
+</section>
+
+<!-- Featured Collection -->
+<section class="featured" id="shop">
+    <h2 class="section-title">FEATURED CLUCKS</h2>
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chicken Logo Tee" class="product-img">
+            <div class="product-info">
+                <h3 class="product-title">Cluck Tee</h3>
+                <p class="product-price">₹2,799</p><br>
+                <button class="add-to-cart" id="product-1" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chicken Hoodie" class="product-img">
+            <div class="product-info">
+                <h3 class="product-title">Rooster Hoodie</h3>
+                <p class="product-price">₹4,589</p><br>
+                <button class="add-to-cart" id="product-2" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Chicken Cap" class="product-img">
+            <div class="product-info">
+                <h3 class="product-title">Egghead Cap</h3>
+                <p class="product-price">₹2,499</p><br>
+                <button class="add-to-cart" id="product-3" onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer -->
+<footer>
+    <a href="#home" class="footer-logo">CHICKEN</a>
+    <p>Streetwear for the bold and the brave</p>
+
+    <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+
+    <p class="copyright">© 2023 CHICKEN Clothing Co. All rights reserved.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

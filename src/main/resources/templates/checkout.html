@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout - Chicken Clothing</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .checkout-form {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .checkout-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #00a86b;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background-color: #00a86b;
+            color: white;
+            padding: 14px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #007d54;
+        }
+    </style>
+</head>
+<body>
+
+<div class="checkout-form">
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="address">Shipping Address</label>
+        <input type="text" id="address" name="address" required>
+
+        <label for="phone">Phone Number</label>
+        <input type="text" id="phone" name="phone" required>
+
+        <button type="submit">Place Order</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("checkoutForm").addEventListener("submit", function (event) {
+        event.preventDefault(); // prevent reload
+
+        const orderData = {
+            customerName: document.getElementById("name").value,
+            shippingAddress: document.getElementById("address").value,
+            phone: document.getElementById("phone").value,
+            total: 999.0 // example value
+        };
+
+        fetch("/submitOrder", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(orderData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Server error");
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.body.innerHTML = `
+                <div style="text-align:center; padding-top: 100px;">
+                    <h2 style="color: #00a86b;">✅ Thank you, ${orderData.customerName}!</h2>
+                    <p style="font-size: 18px; color: #555;">Your order has been placed successfully. We'll deliver it soon to <strong>${orderData.shippingAddress}</strong>.</p>
+                </div>
+            `;
+        })
+        .catch(error => {
+            alert("❌ Failed to place order: " + error.message);
+        });
+    });
+</script>
+
+</body>
+</html>

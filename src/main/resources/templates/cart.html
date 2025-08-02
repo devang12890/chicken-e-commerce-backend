@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="cart.css" />
+</head>
+<body>
+<h1>Your Cart</h1>
+<div id="cart-items"></div>
+<div id="total-container">
+    <strong>Total: ₹<span id="total">0</span></strong>
+</div>
+
+<!-- ✅ Checkout button with JS redirect -->
+<button id="checkout-btn">Checkout</button>
+
+<!-- Your existing JS -->
+<script src="cart.js"></script>
+
+<!-- ✅ Redirect to /checkout when button clicked -->
+<script>
+    document.getElementById("checkout-btn").addEventListener("click", function () {
+        window.location.href = "/checkout";
+    });
+</script>
+</body>
+</html>
