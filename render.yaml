@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: chicken-backend
+    env: java
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/chicken-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: JAVA_VERSION
+        value: 8
+      - key: SPRING_PROFILES_ACTIVE
+        value: production 
